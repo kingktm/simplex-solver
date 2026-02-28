@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Simplex Solver</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1 class="title"> Simplex Problem Solver </h1>
+
+    <div class="input-container">
+        <h3>Objective Function</h3>
+        <div class="input-row">
+            <select id="type">
+                <option value="max">Maximize</option>
+                <option value="min">Minimize</option>
+            </select>
+            <span class="math-label">Z =</span>
+            <input type="number" id="objX" placeholder="X1"> <span class="var-label">X<sub>1</sub> +</span>
+            <input type="number" id="objY" placeholder="X2"> <span class="var-label">X<sub>2</sub> +</span>
+            <input type="number" id="objZ" placeholder="X3"> <span class="var-label">X<sub>3</sub></span>
+        </div>
+
+        <h3>Constraints</h3>
+        <div id="constraints-list">
+            <div class="constraint-row">
+                <input type="number" class="conX"> <span class="var-label">X<sub>1</sub>+</span>
+                <input type="number" class="conY"> <span class="var-label">X<sub>2</sub>+</span>
+                <input type="number" class="conZ"> <span class="var-label">X<sub>3</sub></span>
+                <select class="operator">
+                    <option value="<=">≤</option>
+                    <option value=">=">≥</option>
+                    <option value="=">=</option>
+                </select>
+                <input type="number" class="conRHS">
+            </div>
+        </div>
+        
+        <div class="actions">
+            <button type="button" class="btn-secondary" onclick="addConstraintRow()">+ Add Constraint</button>
+            <button type="button" class="btn-primary" onclick="generateFromForm()">Solve</button>
+            <button type="button" class="btn-reset" onclick="resetForm()">Clear</button>
+        </div>
+    </div>
+
+    <div id="table-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
